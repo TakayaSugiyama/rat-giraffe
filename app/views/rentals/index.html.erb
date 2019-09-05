@@ -16,7 +16,7 @@
       <td><%= rental.note %></td>
       <td><%= link_to "詳細", rental_path(rental) %></td>
       <td><%= link_to "編集", edit_rental_path(rental) %></td>
-      <td><%= link_to "削除", rental_path(rental),method: :delete %></td>
+      <td><%= link_to "削除", rental_path(rental),method: :delete ,data: {confirm: "本当に削除しますか?"} %></td>
     </tr>
   <% end %>
 </table>

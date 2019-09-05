@@ -35,6 +35,12 @@ class RentalsController < ApplicationController
     @rentals = Rental.all.order(created_at: :desc)
   end
 
+  def destroy 
+    @rental = Rental.find(params[:id])
+    @rental.destroy 
+    redirect_to root_url 
+  end
+
   private 
 
   def rental_params 
