@@ -31,6 +31,10 @@ class RentalsController < ApplicationController
     end
   end
 
+  def index 
+    @rentals = Rental.all.order(created_at: :desc)
+  end
+
   private 
 
   def rental_params 
