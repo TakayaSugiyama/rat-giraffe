@@ -1,0 +1,29 @@
+<%= form_for @rental do |f| %>
+  <%= render "errors"%>
+  <div class = "field">
+    <%= f.label :name , "物件名"%>
+    <%= f.text_field :name %><br/>
+    <%= f.label :price , "賃料"%>
+    <%= f.text_field :price %><br/>
+    <%= f.label :address , "住所"%>
+    <%= f.text_field :address%><br/>
+    <%= f.label :years, "築年数" %>
+    <%= f.text_field :years%><br/>
+    <%= f.label :note, "備考" %>
+    <%= f.text_area :note %><br/>
+  </div>
+    <div class = "field">
+      <hr>
+      <%= f.fields_for :stations do |station_form| %>
+         <h3>最寄り駅</h3>
+        <%= station_form.label :route_name, "路線名" %>
+        <%= station_form.text_field :route_name %><br/>
+        <%= station_form.label :station_name, "駅名" %>
+        <%= station_form.text_field :station_name %><br/>
+        <%= station_form.label :walk_times, "徒歩分数" %>
+        <%= station_form.text_field :walk_times %>分<br/>
+        <hr>
+      <% end %>
+    </div>
+  <%= f.submit %>
+<% end %>
