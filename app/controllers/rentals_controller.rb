@@ -22,7 +22,14 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
   end
 
-  
+  def update 
+    @rental = Rental.find(params[:id])
+    if @rental.update(rental_params)
+      redirect_to @rental 
+    else 
+      redirect_to edit_rental_path, flash: {error_messages: @rental.errors.full_messages}
+    end
+  end
 
   private 
 
